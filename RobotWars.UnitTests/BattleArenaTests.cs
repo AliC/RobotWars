@@ -11,6 +11,17 @@ namespace RobotWars.UnitTests
     class BattleArenaTests
     {
         [Test]
+        public void When_Battle_Starts_Robot_Has_Valid_Initial_Location()
+        {
+            Robot robot = new Robot();
+
+            BattleArena battleArena = new BattleArena();
+            battleArena.PlaceRobot(robot);
+
+            Assert.IsTrue(battleArena.Boundary.Locations.Any(l => l == robot.Location));
+        }
+
+        [Test]
         public void Arena_Boundary_Should_Be_Five_By_Five()
         {
 
