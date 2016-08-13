@@ -1,8 +1,8 @@
 ﻿namespace RobotWars
 {
-    public class Position
+    public class Location
     {
-        public Position(int x, int y)
+        public Location(int x, int y)
         {
             X = x;
             Y = y;

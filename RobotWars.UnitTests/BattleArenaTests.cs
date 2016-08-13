@@ -18,8 +18,8 @@ namespace RobotWars.UnitTests
 
             for (int i = 0; i < 25; i++)
             {
-                Assert.That(battleArena.Boundary.Positions[i].X, Is.EqualTo(Math.Floor(i / 5m)));
-                Assert.That(battleArena.Boundary.Positions[i].Y, Is.EqualTo(i % 5));
+                Assert.That(battleArena.Boundary.Locations[i].X, Is.EqualTo(Math.Floor(i / 5m)));
+                Assert.That(battleArena.Boundary.Locations[i].Y, Is.EqualTo(i % 5));
             }
         }
     }

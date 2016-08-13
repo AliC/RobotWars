@@ -8,18 +8,18 @@ namespace RobotWars
     {
         public Boundary()
         {
-            Positions = GeneratePositions(5, 5).ToList();
+            Locations = GeneratePositions(5, 5).ToList();
         }
 
-        public IList<Position> Positions { get; set; }
+        public IList<Location> Locations { get; set; }
 
-        private IEnumerable<Position> GeneratePositions(int rows, int columns)
+        private IEnumerable<Location> GeneratePositions(int rows, int columns)
         {
             for (int i = 0; i < rows; i++)
             {
                 for (int j = 0; j < columns; j++)
                 {
-                    yield return new Position(i, j);
+                    yield return new Location(i, j);
                 }
 
             }
