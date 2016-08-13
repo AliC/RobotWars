@@ -11,14 +11,18 @@ namespace RobotWars.UnitTests
     class BattleArenaTests
     {
         [Test]
-        public void When_Battle_Starts_Robot_Has_Valid_Initial_Location()
+        public void When_Battle_Starts_Robot_Has_Initial_Location()
         {
+            Location expectedLocation = new Location(0, 0);
+            string expectedHeading = "N";
+
             Robot robot = new Robot();
-
             BattleArena battleArena = new BattleArena();
-            battleArena.PlaceRobot(robot);
 
-            Assert.IsTrue(battleArena.Boundary.Locations.Any(l => l == robot.Location));
+            battleArena.PlaceRobot(robot, expectedLocation, expectedHeading);
+
+            Assert.That(robot.Location, Is.EqualTo(expectedLocation));
+            Assert.That(robot.Heading, Is.EqualTo(expectedHeading));
         }
 
         [Test]

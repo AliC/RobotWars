@@ -8,12 +8,12 @@ namespace RobotWars
     {
         public Boundary()
         {
-            Locations = GeneratePositions(5, 5).ToList();
+            Locations = GenerateLocations(5, 5).ToList();
         }
 
         public IList<Location> Locations { get; set; }
 
-        private IEnumerable<Location> GeneratePositions(int rows, int columns)
+        private IEnumerable<Location> GenerateLocations(int rows, int columns)
         {
             for (int i = 0; i < rows; i++)
             {
