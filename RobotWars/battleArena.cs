@@ -22,9 +22,9 @@ namespace RobotWars
 
         public IList<string> Headings { get; set; }
 
-        public void PlaceRobot(Robot robot, Location initialLocation, string initialHeading)
+        public void PlaceRobot(Robot robot, Location initialLocation, Heading initialHeading)
         {
-            if (Boundary.Locations.Any(l => l.X == initialLocation.X && l.Y == initialLocation.Y) && Headings.Any(h => h == initialHeading))
+            if (Boundary.Locations.Any(l => l.X == initialLocation.X && l.Y == initialLocation.Y))
             {
                 robot.Location = initialLocation;
                 robot.Heading = initialHeading;
