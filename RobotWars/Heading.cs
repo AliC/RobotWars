@@ -6,32 +6,25 @@ namespace RobotWars
 {
     public struct Heading
     {
-        private string _heading;
         private const string _headings = "NESW";
+
+        public string Value { get; set; }
 
         public Heading(string heading)
         {
-            _heading = heading;
+            Value = heading;
         }
-
-        public string HeadingFoo
-        {
-            get
-            {
-                return _heading;
-            }
-        }
-
+        
         public static Heading operator ++(Heading operand)
         {
-            string newHeading = Next(_headings, operand.HeadingFoo);
+            string newHeading = Next(_headings, operand.Value);
 
             return new Heading(newHeading);
         }
 
         public static Heading operator --(Heading operand)
         {
-            string newHeading = Next(_headings.Reverse(), operand.HeadingFoo);
+            string newHeading = Next(_headings.Reverse(), operand.Value);
 
             return new Heading(newHeading);
         }

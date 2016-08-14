@@ -1,14 +1,30 @@
 ﻿using System;
+using System.Linq;
 
 namespace RobotWars
 {
     public class Robot
     {
+        private BattleArena _battleArena;
+
         public Location Location { get; set; }
 
         public Heading Heading { get; set; }
 
         public int Penalties { get; set; }
+
+        public string CurrentStatus
+        {
+            get
+            {
+                return string.Join(" ", Location.X, Location.Y, Heading.Value);
+            }
+        }
+
+        public Robot(BattleArena battleArena)
+        {
+            _battleArena = battleArena;
+        }
 
         public void Navigate(char instruction)
         {
@@ -22,24 +38,60 @@ namespace RobotWars
             }
             else if (instruction == 'M')
             {
-                if (Heading.HeadingFoo == "N")
+                if (Heading.Value == "N")
                 {
-                    Location.Y++;
+                    Location newLocation = new Location(Location.X, Location.Y + 1);
+
+                    if (_battleArena.Boundary.Locations.Contains(newLocation))
+                    {
+                        Location = newLocation;
+                    }
+                    else
+                    {
+                        Penalties++;
+                    }
                 }
 
-                if (Heading.HeadingFoo == "S")
+                if (Heading.Value == "S")
                 {
-                    Location.Y--;
+                    Location newLocation = new Location(Location.X, Location.Y - 1);
+
+                    if (_battleArena.Boundary.Locations.Contains(newLocation))
+                    {
+                        Location = newLocation;
+                    }
+                    else
+                    {
+                        Penalties++;
+                    }
                 }
 
-                if (Heading.HeadingFoo == "E")
+                if (Heading.Value == "E")
                 {
-                    Location.X++;
+                    Location newLocation = new Location(Location.X + 1, Location.Y);
+
+                    if (_battleArena.Boundary.Locations.Contains(newLocation))
+                    {
+                        Location = newLocation;
+                    }
+                    else
+                    {
+                        Penalties++;
+                    }
                 }
 
-                if (Heading.HeadingFoo == "W")
+                if (Heading.Value == "W")
                 {
-                    Location.X--;
+                    Location newLocation = new Location(Location.X - 1, Location.Y);
+
+                    if (_battleArena.Boundary.Locations.Contains(newLocation))
+                    {
+                        Location = newLocation;
+                    }
+                    else
+                    {
+                        Penalties++;
+                    }
                 }
             }
         }

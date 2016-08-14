@@ -25,26 +25,57 @@ namespace RobotWars.UnitTests
             //TODO ADC: consider using a Queue (FIFO)
             string movementInstructions = "MLMRMMMRMMRR";
 
-            Robot robot = new Robot();
             BattleArena battleArena = new BattleArena();
+            Robot robot = new Robot(battleArena);
 
             battleArena.PlaceRobot(robot, initialLocation, initialHeading);
 
-            Trace.WriteLine(string.Join(" ", robot.Location.X, robot.Location.Y, robot.Heading.HeadingFoo));
+            Trace.WriteLine(robot.CurrentStatus);
 
             foreach (char instruction in movementInstructions)
             {
                 robot.Navigate(instruction);
 
-                Trace.WriteLine(string.Join(" ", robot.Location.X, robot.Location.Y, robot.Heading.HeadingFoo));
+                Trace.WriteLine(robot.CurrentStatus);
             }
-
 
             Assert.That(robot.Location.X, Is.EqualTo(expectedLocation.X));
             Assert.That(robot.Location.Y, Is.EqualTo(expectedLocation.Y));
-            Assert.That(robot.Heading.HeadingFoo, Is.EqualTo(expectedHeading.HeadingFoo));
+            Assert.That(robot.Heading.Value, Is.EqualTo(expectedHeading.Value));
             Assert.That(robot.Penalties, Is.EqualTo(expectedPenalties));
+        }
+        
+        [Test]
+        public void Given_Initial_Location_Of_44S_When_Instructions_Are_LMLLMMLMMMRMM_Then_Final_Location_And_Penalty_Count_Is_01W1()
+        {
+            Location initialLocation = new Location(4, 4);
+            Heading initialHeading = new Heading("S");
 
+            Location expectedLocation = new Location(0, 1);
+            Heading expectedHeading = new Heading("W");
+            int expectedPenalties = 1;
+
+            //TODO ADC: consider using a Queue (FIFO)
+            string movementInstructions = "LMLLMMLMMMRMM";
+
+            BattleArena battleArena = new BattleArena();
+            Robot robot = new Robot(battleArena);
+
+            battleArena.PlaceRobot(robot, initialLocation, initialHeading);
+
+            Trace.WriteLine(robot.CurrentStatus);
+
+            foreach (char instruction in movementInstructions)
+            {
+                robot.Navigate(instruction);
+
+                Trace.WriteLine(robot.CurrentStatus);
+            }
+
+            Assert.That(robot.Location.X, Is.EqualTo(expectedLocation.X));
+            Assert.That(robot.Location.Y, Is.EqualTo(expectedLocation.Y));
+            Assert.That(robot.Heading.Value, Is.EqualTo(expectedHeading.Value));
+            Assert.That(robot.Penalties, Is.EqualTo(expectedPenalties));
         }
     }
 
@@ -57,12 +88,6 @@ namespace RobotWars.UnitTests
 Initial Position
 Movements instructions
 Final position and penalty count
-
-Scenario 1
-0, 2, E
-MLMRMMMRMMRR
-Position:	4, 1, N
-Penalties: 	0 
 
     Scenario 2
 4, 4, S
