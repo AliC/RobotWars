@@ -1,18 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace RobotWars
 {
-    public class Heading
+    public struct Heading
     {
-        private Headings _heading;
+        private string _heading;
+        private const string _headings = "NESW";
 
-        public Heading(Headings heading)
+        public Heading(string heading)
         {
             _heading = heading;
         }
 
-        public Headings HeadingFoo
+        public string HeadingFoo
         {
             get
             {
@@ -22,17 +24,34 @@ namespace RobotWars
 
         public static Heading operator ++(Heading operand)
         {
-            Headings newHeading = operand.HeadingFoo + 90;
+            string newHeading = Next(_headings, operand.HeadingFoo);
 
             return new Heading(newHeading);
         }
 
         public static Heading operator --(Heading operand)
         {
-            Headings newHeading = operand.HeadingFoo - 90;
+            string newHeading = Next(_headings.Reverse(), operand.HeadingFoo);
 
             return new Heading(newHeading);
         }
 
+        private static string Next(IEnumerable<char> headings, string headingFoo)
+        {
+            char newHeading;
+
+            IEnumerable<char> nextHeading = headings.SkipWhile(h => !(h == headingFoo[0])).Skip(1);
+
+            if (nextHeading.Any())
+            {
+                newHeading = nextHeading.First();
+            }
+            else
+            {
+                newHeading = headings.First();
+            }
+
+            return newHeading.ToString();
+        }
     }
 }

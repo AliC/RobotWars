@@ -16,10 +16,10 @@ namespace RobotWars.UnitTests
         public void Given_Initial_Location_Of_02E_When_Instructions_Are_MLMRMMMRMMRR_Then_Final_Location_And_Penalty_Count_Is_41N0()
         {
             Location initialLocation = new Location(0, 2);
-            Heading initialHeading = new Heading(Headings.E);
+            Heading initialHeading = new Heading("E");
 
             Location expectedLocation = new Location(4, 1);
-            string expectedHeading = "N";
+            Heading expectedHeading = new Heading("N");
             int expectedPenalties = 0;
 
             //TODO ADC: consider using a Queue (FIFO)
@@ -42,7 +42,7 @@ namespace RobotWars.UnitTests
 
             Assert.That(robot.Location.X, Is.EqualTo(expectedLocation.X));
             Assert.That(robot.Location.Y, Is.EqualTo(expectedLocation.Y));
-            Assert.That(robot.Heading, Is.EqualTo(expectedHeading));
+            Assert.That(robot.Heading.HeadingFoo, Is.EqualTo(expectedHeading.HeadingFoo));
             Assert.That(robot.Penalties, Is.EqualTo(expectedPenalties));
 
         }

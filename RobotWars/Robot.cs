@@ -16,32 +16,30 @@ namespace RobotWars
             {
                 Heading--;
             }
-
-            if (instruction == 'R')
+            else if (instruction == 'R')
             {
                 Heading++;
             }
-
-            if (instruction == 'M')
+            else if (instruction == 'M')
             {
-                if (Heading.HeadingFoo == Headings.N)
-                {
-                    Location.X++;
-                }
-
-                if (Heading.HeadingFoo == Headings.S)
-                {
-                    Location.X--;
-                }
-
-                if (Heading.HeadingFoo == Headings.E)
+                if (Heading.HeadingFoo == "N")
                 {
                     Location.Y++;
                 }
 
-                if (Heading.HeadingFoo == Headings.W)
+                if (Heading.HeadingFoo == "S")
                 {
                     Location.Y--;
+                }
+
+                if (Heading.HeadingFoo == "E")
+                {
+                    Location.X++;
+                }
+
+                if (Heading.HeadingFoo == "W")
+                {
+                    Location.X--;
                 }
             }
         }

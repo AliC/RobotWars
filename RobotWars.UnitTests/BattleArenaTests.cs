@@ -14,7 +14,7 @@ namespace RobotWars.UnitTests
         public void When_Battle_Starts_Robot_Has_Initial_Location()
         {
             Location expectedLocation = new Location(0, 0);
-            Heading expectedHeading = new Heading(Headings.N);
+            Heading expectedHeading = new Heading("N");
 
             Robot robot = new Robot();
             BattleArena battleArena = new BattleArena();
