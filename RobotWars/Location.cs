@@ -22,7 +22,27 @@ namespace RobotWars
         {
             return Equals(obj as Location);
         }
-        
+
+        public static bool operator ==(Location first, Location second)
+        {
+            if (ReferenceEquals(first, second))
+            {
+                return true;
+            }
+
+            if (((object)first == null || (object)second == null))
+            {
+                return false;
+            }
+
+            return first.Equals(second);
+        }
+
+        public static bool operator !=(Location first, Location second)
+        {
+            return !(first == second);
+        }
+
         public override int GetHashCode()
         {
             return X * 31 + Y;

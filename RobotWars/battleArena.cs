@@ -24,7 +24,7 @@ namespace RobotWars
 
         public void PlaceRobot(Robot robot, Location initialLocation, Heading initialHeading)
         {
-            if (Boundary.Locations.Any(l => l.X == initialLocation.X && l.Y == initialLocation.Y))
+            if (Boundary.Locations.Any(l => l == initialLocation))
             {
                 robot.Location = initialLocation;
                 robot.Heading = initialHeading;

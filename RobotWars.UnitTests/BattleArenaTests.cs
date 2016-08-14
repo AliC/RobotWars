@@ -26,9 +26,8 @@ namespace RobotWars.UnitTests
         }
 
         [Test]
-        public void Arena_Boundary_Should_Be_Five_By_Five()
+        public void BattleArena_Boundary_Should_Be_Five_By_Five()
         {
-
             BattleArena battleArena = new BattleArena();
 
             for (int i = 0; i < 25; i++)
