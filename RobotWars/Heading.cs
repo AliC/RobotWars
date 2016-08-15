@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace RobotWars
@@ -15,25 +14,25 @@ namespace RobotWars
             Value = heading;
         }
         
-        public static Heading operator ++(Heading operand)
+        public static Heading operator ++(Heading heading)
         {
-            string newHeading = Next(_headings, operand.Value);
+            string newHeading = Next(_headings, heading.Value);
 
             return new Heading(newHeading);
         }
 
-        public static Heading operator --(Heading operand)
+        public static Heading operator --(Heading heading)
         {
-            string newHeading = Next(_headings.Reverse(), operand.Value);
+            string newHeading = Next(_headings.Reverse(), heading.Value);
 
             return new Heading(newHeading);
         }
 
-        private static string Next(IEnumerable<char> headings, string headingFoo)
+        private static string Next(IEnumerable<char> headings, string heading)
         {
             char newHeading;
 
-            IEnumerable<char> nextHeading = headings.SkipWhile(h => !(h == headingFoo[0])).Skip(1);
+            IEnumerable<char> nextHeading = headings.SkipWhile(h => !(h == heading[0])).Skip(1);
 
             if (nextHeading.Any())
             {

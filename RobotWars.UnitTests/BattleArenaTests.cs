@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using NUnit.Framework;
 
 namespace RobotWars.UnitTests
 {
     [TestFixture]
-    class BattleArenaTests
+    public class BattleArenaTests
     {
         [Test]
         public void When_Battle_Starts_Robot_Has_Initial_Location()

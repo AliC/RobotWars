@@ -1,7 +1,4 @@
-﻿using System;
-using System.Linq;
-
-namespace RobotWars
+﻿namespace RobotWars
 {
     public class Robot
     {
@@ -15,7 +12,7 @@ namespace RobotWars
         {
             get
             {
-                return string.Join(" ", Location.X, Location.Y, Heading.Value);
+                return string.Join(" ", Location.X, Location.Y, Heading.Value, Penalties);
             }
         }
     }

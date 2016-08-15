@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 using NUnit.Framework;
 
 namespace RobotWars.UnitTests
 {
-
     [TestFixture]
     public class NavigateTests
     {
@@ -27,7 +21,6 @@ namespace RobotWars.UnitTests
             BattleArena battleArena = new BattleArena();
             Robot robot = new Robot();
             Navigator navigator = new Navigator(battleArena, robot);
-
 
             battleArena.PlaceRobot(robot, initialLocation, initialHeading);
 

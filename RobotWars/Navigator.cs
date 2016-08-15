@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace RobotWars
+﻿namespace RobotWars
 {
     public class Navigator
     {

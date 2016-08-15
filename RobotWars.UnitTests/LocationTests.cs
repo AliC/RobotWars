@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 namespace RobotWars.UnitTests
 {
@@ -54,6 +49,7 @@ namespace RobotWars.UnitTests
 
             Assert.IsTrue(a.Equals(b));
         }
+
         [Test]
         public void When_different_objects_are_different_value_then_equals_method_returns_false()
         {
@@ -62,6 +58,5 @@ namespace RobotWars.UnitTests
 
             Assert.IsFalse(a.Equals(b));
         }
-
     }
 }
