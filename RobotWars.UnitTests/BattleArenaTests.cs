@@ -17,7 +17,7 @@ namespace RobotWars.UnitTests
             Heading expectedHeading = new Heading("N");
 
             BattleArena battleArena = new BattleArena();
-            Robot robot = new Robot(battleArena);
+            Robot robot = new Robot();
 
             battleArena.PlaceRobot(robot, expectedLocation, expectedHeading);
 

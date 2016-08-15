@@ -25,7 +25,9 @@ namespace RobotWars.UnitTests
             string movementInstructions = "MLMRMMMRMMRR";
 
             BattleArena battleArena = new BattleArena();
-            Robot robot = new Robot(battleArena);
+            Robot robot = new Robot();
+            Navigator navigator = new Navigator(battleArena, robot);
+
 
             battleArena.PlaceRobot(robot, initialLocation, initialHeading);
 
@@ -33,7 +35,7 @@ namespace RobotWars.UnitTests
 
             foreach (char instruction in movementInstructions)
             {
-                robot.Navigate(instruction);
+                navigator.Navigate(instruction);
 
                 Trace.WriteLine(robot.CurrentStatus);
             }
@@ -57,7 +59,8 @@ namespace RobotWars.UnitTests
             string movementInstructions = "LMLLMMLMMMRMM";
 
             BattleArena battleArena = new BattleArena();
-            Robot robot = new Robot(battleArena);
+            Robot robot = new Robot();
+            Navigator navigator = new Navigator(battleArena, robot);
 
             battleArena.PlaceRobot(robot, initialLocation, initialHeading);
 
@@ -65,7 +68,7 @@ namespace RobotWars.UnitTests
 
             foreach (char instruction in movementInstructions)
             {
-                robot.Navigate(instruction);
+                navigator.Navigate(instruction);
 
                 Trace.WriteLine(robot.CurrentStatus);
             }
@@ -89,7 +92,8 @@ namespace RobotWars.UnitTests
             string movementInstructions = "MLMLMLMRMRMRMRM";
 
             BattleArena battleArena = new BattleArena();
-            Robot robot = new Robot(battleArena);
+            Robot robot = new Robot();
+            Navigator navigator = new Navigator(battleArena, robot);
 
             battleArena.PlaceRobot(robot, initialLocation, initialHeading);
 
@@ -97,7 +101,7 @@ namespace RobotWars.UnitTests
 
             foreach (char instruction in movementInstructions)
             {
-                robot.Navigate(instruction);
+                navigator.Navigate(instruction);
 
                 Trace.WriteLine(robot.CurrentStatus);
             }
@@ -121,7 +125,8 @@ namespace RobotWars.UnitTests
             string movementInstructions = "MMLMMLMMMMM";
 
             BattleArena battleArena = new BattleArena();
-            Robot robot = new Robot(battleArena);
+            Robot robot = new Robot();
+            Navigator navigator = new Navigator(battleArena, robot);
 
             battleArena.PlaceRobot(robot, initialLocation, initialHeading);
 
@@ -129,7 +134,7 @@ namespace RobotWars.UnitTests
 
             foreach (char instruction in movementInstructions)
             {
-                robot.Navigate(instruction);
+                navigator.Navigate(instruction);
 
                 Trace.WriteLine(robot.CurrentStatus);
             }
